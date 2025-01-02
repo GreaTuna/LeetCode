@@ -2,8 +2,7 @@ class Solution {
     public int[] vowelStrings(String[] words, int[][] queries) {
         HashSet<Character> vowels = new HashSet<>();
         vowels.add('a'); vowels.add('e'); vowels.add('i'); vowels.add('o'); vowels.add('u');
-        vowels.add('A'); vowels.add('E'); vowels.add('I'); vowels.add('O'); vowels.add('U');
-
+      
         int[] sequence = new int[words.length + 1];
         for (int i = 0; i < words.length; i++) {
             String word = words[i];
