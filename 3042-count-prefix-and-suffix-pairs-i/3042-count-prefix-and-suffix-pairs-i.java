@@ -4,21 +4,14 @@ class Solution {
         int n = words.length;
         for(int i = 0; i < n - 1; i++) {
             for(int j = i+1; j < n; j++) {
-                var str_1 = words[i];
-                var str_2 = words[j];
-                var length_1 = str_1.length();
-                var length_2 = str_2.length();
-
-                if (length_1 > length_2) {
+                if (words[i].length() > words[j].length()) {
                     continue;
                 } 
-                if (!str_2.substring(0, length_1).equals(str_1)) {
-                    continue;
+               
+                if(words[j].startsWith(words[i]) && words[j].endsWith(words[i])){
+                    k++;
                 }
-                if(!str_2.substring(length_2 - length_1, length_2).equals(str_1)) {
-                    continue;
-                }
-                k++;
+                
             } 
         }
 
