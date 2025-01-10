@@ -11,7 +11,8 @@ class Solution {
                 arr_2[k] = Math.max(count[k], arr_2[k]);
             }
         }
-   
+
+        boolean flag = true;
         List<String> answer = new ArrayList<>();
         for(var word : words1) {
             int[] arr_1 = new int[26];
@@ -19,7 +20,7 @@ class Solution {
                 arr_1[character - 'a'] += 1;
             }
 
-            boolean flag = true;
+            flag = true;
             for (int k = 0; k < 26; k++) {
                 if (arr_2[k] > arr_1[k]) {
                     flag = false;
