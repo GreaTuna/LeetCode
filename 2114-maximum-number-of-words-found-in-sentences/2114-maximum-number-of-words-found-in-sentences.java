@@ -8,9 +8,7 @@ class Solution {
                     k++;
                 }
             }
-            if (k > max) {
-                max = k;
-            }
+            max = (k > max) ? k : max;
         }
         return max;
     }
