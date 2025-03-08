@@ -16,9 +16,10 @@ class Solution {
         months.put("Dec","12");
 
         StringBuilder sb = new StringBuilder();
-        String year = date.substring(date.length() - 4);
         int firstSpace = date.indexOf(" ");
         int lastSpace = date.lastIndexOf(" ");
+
+        String year = date.substring(date.length() - 4);
         String month = months.get(date.substring(firstSpace + 1, lastSpace));
         String day = date.substring(0, firstSpace - 2);
         
