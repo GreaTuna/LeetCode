@@ -5,7 +5,6 @@ class Solution {
 
         while (i <= j) {
             int mid = (i + j) / 2;
-
             if (nums[mid] == target) return mid;
 
             if (nums[mid] < target) {
