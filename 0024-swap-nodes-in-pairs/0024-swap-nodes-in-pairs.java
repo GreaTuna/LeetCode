@@ -14,7 +14,7 @@ class Solution {
         ListNode slow = head;
         ListNode fast = head.next;
 
-        while (fast != null) {
+        while (fast != null && slow != null) {
             int temp = fast.val;
             fast.val = slow.val;
             slow.val = temp;
