@@ -1,13 +1,13 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashSet<Integer> set = new HashSet<>();
 
         for (var num : nums) { 
-            if (map.remove(num) != null) {
+            if (set.remove(num)) {
                 continue;
             }
-            map.put(num, 1);
+            set.add(num);
         }
-        return map.keySet().iterator().next();
+        return set.iterator().next();
     }
 }
