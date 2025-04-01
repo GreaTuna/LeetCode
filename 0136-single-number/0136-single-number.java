@@ -3,8 +3,7 @@ class Solution {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for (var num : nums) { 
-            if (map.get(num) != null) {
-                map.remove(num);
+            if (map.remove(num) != null) {
                 continue;
             }
             map.put(num, 1);
