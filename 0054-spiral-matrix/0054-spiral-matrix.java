@@ -5,13 +5,12 @@ class Solution {
             .map(row -> new LinkedList<>(Arrays.stream(row).boxed().toList()))
             .toList()
         );
-
         ArrayList<Integer> newList = new ArrayList<>();
-        return aboba(result, newList);
+        return spiral(result, newList);
     }
 
-    private List<Integer> aboba(LinkedList<LinkedList<Integer>> list, List<Integer> newList) {
-        int size = list.size(); 
+    private List<Integer> spiral(LinkedList<LinkedList<Integer>> list, List<Integer> newList) {
+        int size = list.size();
         if (size == 0) {
             return newList;
         }
@@ -45,7 +44,7 @@ class Solution {
                 newList.add(list.get(i).removeFirst());
             }
         }
-
-        return aboba(list, newList);
+        
+        return spiral(list, newList);
     }
 }
