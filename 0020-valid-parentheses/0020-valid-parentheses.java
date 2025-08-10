@@ -1,26 +1,32 @@
 class Solution {
+    private static final HashMap<Character, Character> map = new HashMap<>();
+    static {
+        map.put(']', '[');
+        map.put('}', '{');
+        map.put(')', '(');
+    }
+
     public boolean isValid(String s) {
-        int length = s.length();
-        if (length % 2 != 0) {  
+        if (s == null || s.isEmpty()) {
+            return true;
+        }
+
+        if (s.length() % 2 != 0) {
             return false;
         }
 
-        int index = -1;
-        char[] arr = new char[length];
-        for (var character : s.toCharArray()) {
-            if (character == '(') {
-                arr[++index] = ')';
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+            if (c == '{' || c == '(' || c == '[') {
+                stack.push(c);
             }
-            else if (character == '[') {
-                arr[++index] = ']';
-            }
-            else if (character == '{') {
-                arr[++index] = '}';
-            }
-            else if (index == -1 || arr[index--] != character) {
-                return false;
+            else {
+                if (stack.isEmpty() || stack.pop() != map.get(c)) {
+                    return false;
+                }
             }
         }
-        return index == -1;
+        return stack.isEmpty() ? true : false;
     }
 }
