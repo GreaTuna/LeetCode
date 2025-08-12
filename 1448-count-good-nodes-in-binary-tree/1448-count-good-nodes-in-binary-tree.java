@@ -14,29 +14,24 @@
  * }
  */
 class Solution {
+    private int goodNodes = 0;
+
     public int goodNodes(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        
-        int goodNodes = 0;
-        Queue<Pair<TreeNode, Integer>> queue = new LinkedList<>();
-        queue.add(new Pair(root, root.val));
 
-        while (!queue.isEmpty()) {
-            Pair<TreeNode, Integer> pair = queue.poll();
-            TreeNode node = pair.getKey();
-            int maxValue = pair.getValue();
-
-            if (node.val >= maxValue) {
-                ++goodNodes;
-            }
-
-            int max = Math.max(maxValue, node.val);
-            if (node.left != null) queue.add(new Pair(node.left, max));
-            if (node.right != null) queue.add(new Pair(node.right, max));
-        }
-        
+        countGoodNodes(root, root.val);
         return goodNodes;
+    }
+
+    private void countGoodNodes(TreeNode node, int max) {
+        if (node.val >= max) {
+            max = node.val;
+            ++goodNodes;
+        }
+
+        if (node.left != null) countGoodNodes(node.left, max);
+        if (node.right != null) countGoodNodes(node.right, max);
     }
 }
